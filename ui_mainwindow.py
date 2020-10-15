@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(300, 341)
+        MainWindow.resize(421, 426)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout_2 = QGridLayout(self.centralwidget)
@@ -31,64 +31,64 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.label_5, 0, 0, 1, 1)
 
-        self.lineEdit = QLineEdit(self.groupBox)
-        self.lineEdit.setObjectName(u"lineEdit")
+        self.id_lineEdit = QLineEdit(self.groupBox)
+        self.id_lineEdit.setObjectName(u"id_lineEdit")
 
-        self.gridLayout.addWidget(self.lineEdit, 0, 1, 1, 1)
+        self.gridLayout.addWidget(self.id_lineEdit, 0, 1, 1, 1)
 
         self.label_2 = QLabel(self.groupBox)
         self.label_2.setObjectName(u"label_2")
 
         self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1)
 
-        self.spinBox = QSpinBox(self.groupBox)
-        self.spinBox.setObjectName(u"spinBox")
-        self.spinBox.setMaximum(500)
+        self.ox_spinBox = QSpinBox(self.groupBox)
+        self.ox_spinBox.setObjectName(u"ox_spinBox")
+        self.ox_spinBox.setMaximum(500)
 
-        self.gridLayout.addWidget(self.spinBox, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.ox_spinBox, 1, 1, 1, 1)
 
         self.label = QLabel(self.groupBox)
         self.label.setObjectName(u"label")
 
         self.gridLayout.addWidget(self.label, 2, 0, 1, 1)
 
-        self.spinBox_2 = QSpinBox(self.groupBox)
-        self.spinBox_2.setObjectName(u"spinBox_2")
-        self.spinBox_2.setMaximum(500)
+        self.oy_spinBox = QSpinBox(self.groupBox)
+        self.oy_spinBox.setObjectName(u"oy_spinBox")
+        self.oy_spinBox.setMaximum(500)
 
-        self.gridLayout.addWidget(self.spinBox_2, 2, 1, 1, 1)
+        self.gridLayout.addWidget(self.oy_spinBox, 2, 1, 1, 1)
 
         self.label_3 = QLabel(self.groupBox)
         self.label_3.setObjectName(u"label_3")
 
         self.gridLayout.addWidget(self.label_3, 3, 0, 1, 1)
 
-        self.spinBox_3 = QSpinBox(self.groupBox)
-        self.spinBox_3.setObjectName(u"spinBox_3")
-        self.spinBox_3.setMaximum(500)
+        self.dx_spinBox = QSpinBox(self.groupBox)
+        self.dx_spinBox.setObjectName(u"dx_spinBox")
+        self.dx_spinBox.setMaximum(500)
 
-        self.gridLayout.addWidget(self.spinBox_3, 3, 1, 1, 1)
+        self.gridLayout.addWidget(self.dx_spinBox, 3, 1, 1, 1)
 
         self.label_4 = QLabel(self.groupBox)
         self.label_4.setObjectName(u"label_4")
 
         self.gridLayout.addWidget(self.label_4, 4, 0, 1, 1)
 
-        self.spinBox_4 = QSpinBox(self.groupBox)
-        self.spinBox_4.setObjectName(u"spinBox_4")
-        self.spinBox_4.setMaximum(500)
+        self.dy_spinBox = QSpinBox(self.groupBox)
+        self.dy_spinBox.setObjectName(u"dy_spinBox")
+        self.dy_spinBox.setMaximum(500)
 
-        self.gridLayout.addWidget(self.spinBox_4, 4, 1, 1, 1)
+        self.gridLayout.addWidget(self.dy_spinBox, 4, 1, 1, 1)
 
         self.label_6 = QLabel(self.groupBox)
         self.label_6.setObjectName(u"label_6")
 
         self.gridLayout.addWidget(self.label_6, 5, 0, 1, 1)
 
-        self.lineEdit_2 = QLineEdit(self.groupBox)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
+        self.velocidad_lineEdit = QLineEdit(self.groupBox)
+        self.velocidad_lineEdit.setObjectName(u"velocidad_lineEdit")
 
-        self.gridLayout.addWidget(self.lineEdit_2, 5, 1, 1, 1)
+        self.gridLayout.addWidget(self.velocidad_lineEdit, 5, 1, 1, 1)
 
         self.label_7 = QLabel(self.groupBox)
         self.label_7.setObjectName(u"label_7")
@@ -100,46 +100,61 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.label_8, 7, 0, 1, 1)
 
-        self.spinBox_5 = QSpinBox(self.groupBox)
-        self.spinBox_5.setObjectName(u"spinBox_5")
-        self.spinBox_5.setMaximum(500)
+        self.red_spinBox = QSpinBox(self.groupBox)
+        self.red_spinBox.setObjectName(u"red_spinBox")
+        self.red_spinBox.setMaximum(500)
 
-        self.gridLayout.addWidget(self.spinBox_5, 7, 1, 1, 1)
+        self.gridLayout.addWidget(self.red_spinBox, 7, 1, 1, 1)
 
         self.label_9 = QLabel(self.groupBox)
         self.label_9.setObjectName(u"label_9")
 
         self.gridLayout.addWidget(self.label_9, 8, 0, 1, 1)
 
-        self.spinBox_6 = QSpinBox(self.groupBox)
-        self.spinBox_6.setObjectName(u"spinBox_6")
-        self.spinBox_6.setMaximum(500)
+        self.green_spinBox = QSpinBox(self.groupBox)
+        self.green_spinBox.setObjectName(u"green_spinBox")
+        self.green_spinBox.setMaximum(500)
 
-        self.gridLayout.addWidget(self.spinBox_6, 8, 1, 1, 1)
+        self.gridLayout.addWidget(self.green_spinBox, 8, 1, 1, 1)
 
         self.label_10 = QLabel(self.groupBox)
         self.label_10.setObjectName(u"label_10")
 
         self.gridLayout.addWidget(self.label_10, 9, 0, 1, 1)
 
-        self.spinBox_7 = QSpinBox(self.groupBox)
-        self.spinBox_7.setObjectName(u"spinBox_7")
-        self.spinBox_7.setMaximum(500)
+        self.blue_spinBox = QSpinBox(self.groupBox)
+        self.blue_spinBox.setObjectName(u"blue_spinBox")
+        self.blue_spinBox.setMaximum(500)
 
-        self.gridLayout.addWidget(self.spinBox_7, 9, 1, 1, 1)
+        self.gridLayout.addWidget(self.blue_spinBox, 9, 1, 1, 1)
 
 
         self.gridLayout_2.addWidget(self.groupBox, 0, 0, 1, 1)
 
-        self.pushButton = QPushButton(self.centralwidget)
-        self.pushButton.setObjectName(u"pushButton")
+        self.agregar_inicio_pushButton = QPushButton(self.centralwidget)
+        self.agregar_inicio_pushButton.setObjectName(u"agregar_inicio_pushButton")
 
-        self.gridLayout_2.addWidget(self.pushButton, 1, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.agregar_inicio_pushButton, 2, 0, 1, 1)
+
+        self.mostrar_pushButton = QPushButton(self.centralwidget)
+        self.mostrar_pushButton.setObjectName(u"mostrar_pushButton")
+
+        self.gridLayout_2.addWidget(self.mostrar_pushButton, 3, 0, 1, 1)
+
+        self.agregar_final_pushButton = QPushButton(self.centralwidget)
+        self.agregar_final_pushButton.setObjectName(u"agregar_final_pushButton")
+
+        self.gridLayout_2.addWidget(self.agregar_final_pushButton, 1, 0, 1, 1)
+
+        self.salida = QPlainTextEdit(self.centralwidget)
+        self.salida.setObjectName(u"salida")
+
+        self.gridLayout_2.addWidget(self.salida, 0, 1, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 300, 21))
+        self.menubar.setGeometry(QRect(0, 0, 421, 21))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -159,10 +174,12 @@ class Ui_MainWindow(object):
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"destino x:", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"destino y:", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"velocidad: ", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"color (rgb):", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"color (rgb)", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"red: ", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"green: ", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"blue: ", None))
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Agregar", None))
+        self.agregar_inicio_pushButton.setText(QCoreApplication.translate("MainWindow", u"Agregar al inicio", None))
+        self.mostrar_pushButton.setText(QCoreApplication.translate("MainWindow", u"Mostrar", None))
+        self.agregar_final_pushButton.setText(QCoreApplication.translate("MainWindow", u"Agregar al final", None))
     # retranslateUi
 
