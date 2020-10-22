@@ -21,6 +21,104 @@
        <string>Partícula</string>
       </property>
       <layout class="QGridLayout" name="gridLayout">
+       <item row="2" column="1">
+        <widget class="QSpinBox" name="ox_spinBox">
+         <property name="maximum">
+          <number>500</number>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>velocidad: </string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QSpinBox" name="dx_spinBox">
+         <property name="maximum">
+          <number>500</number>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0">
+        <widget class="QLabel" name="label_9">
+         <property name="text">
+          <string>green: </string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>origen en x: </string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1">
+        <widget class="QSpinBox" name="blue_spinBox">
+         <property name="maximum">
+          <number>500</number>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QSpinBox" name="green_spinBox">
+         <property name="maximum">
+          <number>500</number>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QSpinBox" name="dy_spinBox">
+         <property name="maximum">
+          <number>500</number>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="0">
+        <widget class="QLabel" name="label_10">
+         <property name="text">
+          <string>blue: </string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>origen en y: </string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>color (rgb)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_8">
+         <property name="text">
+          <string>red: </string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>destino y:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QSpinBox" name="oy_spinBox">
+         <property name="maximum">
+          <number>500</number>
+         </property>
+        </widget>
+       </item>
        <item row="0" column="0">
         <widget class="QLabel" name="label_5">
          <property name="text">
@@ -28,121 +126,31 @@
          </property>
         </widget>
        </item>
-       <item row="0" column="1">
-        <widget class="QLineEdit" name="id_lineEdit"/>
-       </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>origen en x: </string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QSpinBox" name="ox_spinBox">
-         <property name="maximum">
-          <number>500</number>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>origen en y: </string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QSpinBox" name="oy_spinBox">
-         <property name="maximum">
-          <number>500</number>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
+       <item row="4" column="0">
         <widget class="QLabel" name="label_3">
          <property name="text">
           <string>destino x:</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="1">
-        <widget class="QSpinBox" name="dx_spinBox">
-         <property name="maximum">
-          <number>500</number>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="label_4">
-         <property name="text">
-          <string>destino y:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1">
-        <widget class="QSpinBox" name="dy_spinBox">
-         <property name="maximum">
-          <number>500</number>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
-        <widget class="QLabel" name="label_6">
-         <property name="text">
-          <string>velocidad: </string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="1">
-        <widget class="QLineEdit" name="velocidad_lineEdit"/>
-       </item>
-       <item row="6" column="0">
-        <widget class="QLabel" name="label_7">
-         <property name="text">
-          <string>color (rgb)</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="0">
-        <widget class="QLabel" name="label_8">
-         <property name="text">
-          <string>red: </string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="1">
+       <item row="8" column="1">
         <widget class="QSpinBox" name="red_spinBox">
          <property name="maximum">
           <number>500</number>
          </property>
         </widget>
        </item>
-       <item row="8" column="0">
-        <widget class="QLabel" name="label_9">
-         <property name="text">
-          <string>green: </string>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="1">
-        <widget class="QSpinBox" name="green_spinBox">
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="id_spinBox">
          <property name="maximum">
-          <number>500</number>
+          <number>1000000</number>
          </property>
         </widget>
        </item>
-       <item row="9" column="0">
-        <widget class="QLabel" name="label_10">
-         <property name="text">
-          <string>blue: </string>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="1">
-        <widget class="QSpinBox" name="blue_spinBox">
+       <item row="6" column="1">
+        <widget class="QSpinBox" name="velocidad_spinBox_2">
          <property name="maximum">
-          <number>500</number>
+          <number>1000000</number>
          </property>
         </widget>
        </item>
@@ -184,8 +192,32 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuArchivo">
+    <property name="title">
+     <string>Archivo</string>
+    </property>
+    <addaction name="actionAbrir"/>
+    <addaction name="actionGuardar"/>
+   </widget>
+   <addaction name="menuArchivo"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionAbrir">
+   <property name="text">
+    <string>Abrir</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionGuardar">
+   <property name="text">
+    <string>Guardar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
