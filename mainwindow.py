@@ -1,23 +1,60 @@
-from PySide2.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QTableWidgetItem
+from PySide2.QtWidgets import QMainWindow, QFileDialog, QMessageBox, QTableWidgetItem, QGraphicsScene
+from PySide2.QtGui import QPen, QColor
 from PySide2.QtCore import Slot
 from ui_mainwindow import Ui_MainWindow
 from almacen_particulas import Almacen_Particulas
 from particula import Particula
+from random import randint
 
 class MainWindow(QMainWindow):
     def __init__(self):
-       super(MainWindow, self).__init__() 
-       self.almacen_de_particulas = Almacen_Particulas()
-       self.ui = Ui_MainWindow()
-       self.ui.setupUi(self)
-       self.ui.agregar_final_pushButton.clicked.connect(self.click_agregar_final)
-       self.ui.agregar_inicio_pushButton.clicked.connect(self.click_agregar_inicio)
-       self.ui.mostrar_pushButton.clicked.connect(self.click_mostrar)
-       self.ui.actionAbrir.triggered.connect(self.action_abrir_archivo)
-       self.ui.actionGuardar.triggered.connect(self.action_guardar_archivo)
-       self.ui.mostrar_tabla_pushButton.clicked.connect(self.mostrar_tabla)
-       self.ui.buscar_pushButton.clicked.connect(self.buscar_titulo) 
+        super(MainWindow, self).__init__() 
+        self.almacen_de_particulas = Almacen_Particulas()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+        self.ui.agregar_final_pushButton.clicked.connect(self.click_agregar_final)
+        self.ui.agregar_inicio_pushButton.clicked.connect(self.click_agregar_inicio)
+        self.ui.mostrar_pushButton.clicked.connect(self.click_mostrar)
+        self.ui.actionAbrir.triggered.connect(self.action_abrir_archivo)
+        self.ui.actionGuardar.triggered.connect(self.action_guardar_archivo)
+        self.ui.mostrar_tabla_pushButton.clicked.connect(self.mostrar_tabla)
+        self.ui.buscar_pushButton.clicked.connect(self.buscar_titulo) 
+        self.ui.pushButton_Dibujar.clicked.connect(self.dibujar)
+        self.ui.pushButton_Limpiar.clicked.connect(self.limpiar)
+        
+        self.scene = QGraphicsScene()
+        self.ui.graphicsView.setScene(self.scene)
     
+    @Slot()
+    def dibujar(self):
+        pen = QPen()
+        pen.setWidth(2)
+        for particula in self.almacen_de_particulas:
+            orX = particula.origenX
+            orY = particula.origenY
+            dtX = particula.destinoX
+            dtY = particula.destinoY
+            vel = particula.velocidad
+            r = particula.red
+            g = particula.green
+            b = particula.blue
+            distance = particula.distancia
+            color = QColor(r, g, b)
+            pen.setColor(color)
+            self.scene.addEllipse(orX, orY, 3, 3, pen)
+            self.scene.addEllipse(dtX, dtY, 3, 3, pen)
+            self.scene.addLine(orX+3, orY+3, dtX, dtY, pen)
+
+    def wheelEvent(self, event):
+        if event.delta() > 0:
+            self.ui.graphicsView.scale(1.2, 1.2)
+        else:
+            self.ui.graphicsView.scale(0.8, 0.8)
+
+    @Slot()
+    def limpiar(self):
+        self.scene.clear()
+
     @Slot()
     def buscar_titulo(self):
         id = self.ui.buscar_lineEdit.text()
