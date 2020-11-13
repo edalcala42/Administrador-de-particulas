@@ -11,6 +11,15 @@ class Almacen_Particulas:
     def agregar_final(self, particula:Particula):
         self.__particulas.append(particula)
 
+    def ordenarId(self):
+        self.__particulas.sort()
+    
+    def ordenarDistancia(self):
+        self.__particulas.sort(key = lambda particula: particula.distancia, reverse=True)
+
+    def ordenarVelocidad(self):
+        self.__particulas.sort(key = lambda particula: particula.velocidad, reverse=True)
+
     def mostrar(self):
         for particula in self.__particulas:
             print(particula)
