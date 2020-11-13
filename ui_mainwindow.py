@@ -168,25 +168,40 @@ class Ui_MainWindow(object):
         self.tab_2.setObjectName(u"tab_2")
         self.gridLayout_4 = QGridLayout(self.tab_2)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.tabla = QTableWidget(self.tab_2)
-        self.tabla.setObjectName(u"tabla")
-
-        self.gridLayout_4.addWidget(self.tabla, 0, 0, 1, 3)
-
         self.buscar_lineEdit = QLineEdit(self.tab_2)
         self.buscar_lineEdit.setObjectName(u"buscar_lineEdit")
 
-        self.gridLayout_4.addWidget(self.buscar_lineEdit, 1, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.buscar_lineEdit, 4, 0, 1, 1)
+
+        self.tabla = QTableWidget(self.tab_2)
+        self.tabla.setObjectName(u"tabla")
+
+        self.gridLayout_4.addWidget(self.tabla, 0, 0, 1, 2)
 
         self.buscar_pushButton = QPushButton(self.tab_2)
         self.buscar_pushButton.setObjectName(u"buscar_pushButton")
 
-        self.gridLayout_4.addWidget(self.buscar_pushButton, 1, 1, 1, 1)
+        self.gridLayout_4.addWidget(self.buscar_pushButton, 4, 1, 1, 1)
 
         self.mostrar_tabla_pushButton = QPushButton(self.tab_2)
         self.mostrar_tabla_pushButton.setObjectName(u"mostrar_tabla_pushButton")
 
-        self.gridLayout_4.addWidget(self.mostrar_tabla_pushButton, 1, 2, 1, 1)
+        self.gridLayout_4.addWidget(self.mostrar_tabla_pushButton, 2, 0, 1, 1)
+
+        self.Orden_ID_pushButton = QPushButton(self.tab_2)
+        self.Orden_ID_pushButton.setObjectName(u"Orden_ID_pushButton")
+
+        self.gridLayout_4.addWidget(self.Orden_ID_pushButton, 4, 2, 1, 1)
+
+        self.Orden_Distancia_pushButton = QPushButton(self.tab_2)
+        self.Orden_Distancia_pushButton.setObjectName(u"Orden_Distancia_pushButton")
+
+        self.gridLayout_4.addWidget(self.Orden_Distancia_pushButton, 2, 1, 1, 1)
+
+        self.Orden_Velocidad_pushButton = QPushButton(self.tab_2)
+        self.Orden_Velocidad_pushButton.setObjectName(u"Orden_Velocidad_pushButton")
+
+        self.gridLayout_4.addWidget(self.Orden_Velocidad_pushButton, 2, 2, 1, 1)
 
         self.tabWidget.addTab(self.tab_2, "")
         self.tab_3 = QWidget()
@@ -210,7 +225,7 @@ class Ui_MainWindow(object):
 
         self.tabWidget.addTab(self.tab_3, "")
 
-        self.gridLayout_3.addWidget(self.tabWidget, 1, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.tabWidget, 0, 0, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
@@ -229,7 +244,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -263,6 +278,9 @@ class Ui_MainWindow(object):
         self.buscar_lineEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Nombre de la part\u00edcula", None))
         self.buscar_pushButton.setText(QCoreApplication.translate("MainWindow", u"Buscar", None))
         self.mostrar_tabla_pushButton.setText(QCoreApplication.translate("MainWindow", u"Mostrar", None))
+        self.Orden_ID_pushButton.setText(QCoreApplication.translate("MainWindow", u"Ordenar por Id", None))
+        self.Orden_Distancia_pushButton.setText(QCoreApplication.translate("MainWindow", u"Ordenar por distancia", None))
+        self.Orden_Velocidad_pushButton.setText(QCoreApplication.translate("MainWindow", u"Ordenar por velocidad", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Tabla", None))
         self.pushButton_Dibujar.setText(QCoreApplication.translate("MainWindow", u"Dibujar", None))
         self.pushButton_Limpiar.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
