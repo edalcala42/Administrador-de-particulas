@@ -18,7 +18,7 @@ class Almacen_Particulas:
         self.__particulas.sort(key = lambda particula: particula.distancia, reverse=True)
 
     def ordenarVelocidad(self):
-        self.__particulas.sort(key = lambda particula: particula.velocidad, reverse=True)
+        self.__particulas.sort(key = lambda particula: particula.velocidad)
 
     def mostrar(self):
         for particula in self.__particulas:
