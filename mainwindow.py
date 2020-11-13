@@ -21,10 +21,24 @@ class MainWindow(QMainWindow):
         self.ui.buscar_pushButton.clicked.connect(self.buscar_titulo) 
         self.ui.pushButton_Dibujar.clicked.connect(self.dibujar)
         self.ui.pushButton_Limpiar.clicked.connect(self.limpiar)
-        
+        self.ui.Orden_ID_pushButton.clicked.connect(self.ordenId)
+        self.ui.Orden_Distancia_pushButton.clicked.connect(self.ordenDistancia)
+        self.ui.Orden_Velocidad_pushButton.clicked.connect(self.ordenVelocidad)
         self.scene = QGraphicsScene()
         self.ui.graphicsView.setScene(self.scene)
     
+    @Slot()
+    def ordenId(self):
+        self.almacen_de_particulas.ordenarId()
+
+    @Slot()
+    def ordenDistancia(self):
+        self.almacen_de_particulas.ordenarDistancia()
+
+    @Slot()
+    def ordenVelocidad(self):
+        self.almacen_de_particulas.ordenarVelocidad()
+
     @Slot()
     def dibujar(self):
         pen = QPen()
@@ -101,7 +115,6 @@ class MainWindow(QMainWindow):
         self.ui.tabla.setColumnCount(10)
         headers = ["Id", "Origen en X", "Origen en Y", "Destino en X", "Destino en Y", "Velocidad", "Red", "Green", "Blue", "Distancia"]
         self.ui.tabla.setHorizontalHeaderLabels(headers)
-
         self.ui.tabla.setRowCount(len(self.almacen_de_particulas))
 
         row = 0
