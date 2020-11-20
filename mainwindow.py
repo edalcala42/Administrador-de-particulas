@@ -5,11 +5,14 @@ from ui_mainwindow import Ui_MainWindow
 from almacen_particulas import Almacen_Particulas
 from particula import Particula
 from random import randint
+from pprint import pformat
+import json
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__() 
         self.almacen_de_particulas = Almacen_Particulas()
+        self.grafos = dict()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.agregar_final_pushButton.clicked.connect(self.click_agregar_final)
@@ -146,6 +149,9 @@ class MainWindow(QMainWindow):
 
     @Slot()
     def action_abrir_archivo(self):
+        with open('grafo.json', 'r') as file:
+            self.grafos = json.load(file)
+        
         ubicacion = QFileDialog.getOpenFileName(
             self,
             'Abrir Archivo',
@@ -168,6 +174,9 @@ class MainWindow(QMainWindow):
     @Slot()
     def action_guardar_archivo(self):
         #print('guardar_archivo')
+        with open('grafo.json', 'w') as file:
+            json.dump(str(self.grafos), file, indent=5)   
+        
         ubicacion = QFileDialog.getSaveFileName(
             self,
             'Guardar Archivo',
@@ -203,6 +212,16 @@ class MainWindow(QMainWindow):
         particula = Particula(id, origenX, origenY, destinoX, destinoY, velocidad, red, green, blue)
         self.almacen_de_particulas.agregar_final(particula)
 
+        key = (origenX, origenY)
+        print(key)
+        value = (destinoX, destinoY, particula.distancia)
+        if key in self.grafos:
+            self.grafos[key].append(value)
+        else:
+            self.grafos[key] = [value]
+
+
+
     @Slot()
     def click_agregar_inicio(self):
         id = self.ui.id_spinBox.value()
@@ -218,7 +237,21 @@ class MainWindow(QMainWindow):
         particula = Particula(id, origenX, origenY, destinoX, destinoY, velocidad, red, green, blue)
         self.almacen_de_particulas.agregar_inicio(particula)
 
+        key = (origenX, origenY)
+        print(key)
+        value = (destinoX, destinoY, particula.distancia)
+        if key in self.grafos:
+            self.grafos[key].append(value)
+        else:
+            self.grafos[key] = [value]
+
+
     @Slot()
     def click_mostrar(self):
         self.ui.salida.clear()
-        self.ui.salida.insertPlainText(str(self.almacen_de_particulas))
+        #self.ui.salida.insertPlainText(str(self.almacen_de_particulas))
+        str = pformat(self.grafos, width=40, indent=1)
+        self.ui.salida.insertPlainText(str)
+        print('Imprimiendo keys...')
+        for key in self.grafos.keys():
+            print(key)
