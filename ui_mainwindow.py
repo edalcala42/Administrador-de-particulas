@@ -224,6 +224,79 @@ class Ui_MainWindow(object):
         self.gridLayout_5.addWidget(self.pushButton_Limpiar, 1, 1, 1, 1)
 
         self.tabWidget.addTab(self.tab_3, "")
+        self.tab_4 = QWidget()
+        self.tab_4.setObjectName(u"tab_4")
+        self.gridLayout_9 = QGridLayout(self.tab_4)
+        self.gridLayout_9.setObjectName(u"gridLayout_9")
+        self.groupBox_2 = QGroupBox(self.tab_4)
+        self.groupBox_2.setObjectName(u"groupBox_2")
+        self.gridLayout_6 = QGridLayout(self.groupBox_2)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.label_11 = QLabel(self.groupBox_2)
+        self.label_11.setObjectName(u"label_11")
+
+        self.gridLayout_6.addWidget(self.label_11, 0, 0, 1, 3)
+
+        self.label_12 = QLabel(self.groupBox_2)
+        self.label_12.setObjectName(u"label_12")
+
+        self.gridLayout_6.addWidget(self.label_12, 1, 0, 1, 1)
+
+        self.spinBox_B_OrigenX = QSpinBox(self.groupBox_2)
+        self.spinBox_B_OrigenX.setObjectName(u"spinBox_B_OrigenX")
+        self.spinBox_B_OrigenX.setMaximum(10000)
+
+        self.gridLayout_6.addWidget(self.spinBox_B_OrigenX, 1, 1, 1, 1)
+
+        self.pushButton_Mostrar_Busqueda_Profundidad = QPushButton(self.groupBox_2)
+        self.pushButton_Mostrar_Busqueda_Profundidad.setObjectName(u"pushButton_Mostrar_Busqueda_Profundidad")
+
+        self.gridLayout_6.addWidget(self.pushButton_Mostrar_Busqueda_Profundidad, 1, 2, 1, 1)
+
+        self.label_13 = QLabel(self.groupBox_2)
+        self.label_13.setObjectName(u"label_13")
+
+        self.gridLayout_6.addWidget(self.label_13, 1, 3, 1, 1)
+
+        self.spinBox_2_B_OrigenY = QSpinBox(self.groupBox_2)
+        self.spinBox_2_B_OrigenY.setObjectName(u"spinBox_2_B_OrigenY")
+        self.spinBox_2_B_OrigenY.setMaximum(10000)
+
+        self.gridLayout_6.addWidget(self.spinBox_2_B_OrigenY, 1, 4, 1, 1)
+
+        self.pushButton_Mostrar_Busqueda_Amplitud = QPushButton(self.groupBox_2)
+        self.pushButton_Mostrar_Busqueda_Amplitud.setObjectName(u"pushButton_Mostrar_Busqueda_Amplitud")
+
+        self.gridLayout_6.addWidget(self.pushButton_Mostrar_Busqueda_Amplitud, 1, 5, 1, 1)
+
+
+        self.gridLayout_9.addWidget(self.groupBox_2, 0, 0, 1, 2)
+
+        self.groupBox_3 = QGroupBox(self.tab_4)
+        self.groupBox_3.setObjectName(u"groupBox_3")
+        self.gridLayout_7 = QGridLayout(self.groupBox_3)
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.salida_B_Amplitud = QPlainTextEdit(self.groupBox_3)
+        self.salida_B_Amplitud.setObjectName(u"salida_B_Amplitud")
+
+        self.gridLayout_7.addWidget(self.salida_B_Amplitud, 0, 0, 1, 1)
+
+
+        self.gridLayout_9.addWidget(self.groupBox_3, 1, 0, 1, 1)
+
+        self.groupBox_4 = QGroupBox(self.tab_4)
+        self.groupBox_4.setObjectName(u"groupBox_4")
+        self.gridLayout_8 = QGridLayout(self.groupBox_4)
+        self.gridLayout_8.setObjectName(u"gridLayout_8")
+        self.salida_B_Profundidad = QPlainTextEdit(self.groupBox_4)
+        self.salida_B_Profundidad.setObjectName(u"salida_B_Profundidad")
+
+        self.gridLayout_8.addWidget(self.salida_B_Profundidad, 0, 0, 1, 1)
+
+
+        self.gridLayout_9.addWidget(self.groupBox_4, 1, 1, 1, 1)
+
+        self.tabWidget.addTab(self.tab_4, "")
 
         self.gridLayout_3.addWidget(self.tabWidget, 0, 0, 1, 1)
 
@@ -244,7 +317,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -285,6 +358,15 @@ class Ui_MainWindow(object):
         self.pushButton_Dibujar.setText(QCoreApplication.translate("MainWindow", u"Dibujar", None))
         self.pushButton_Limpiar.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), QCoreApplication.translate("MainWindow", u"Impresi\u00f3n", None))
+        self.groupBox_2.setTitle(QCoreApplication.translate("MainWindow", u"B\u00fasquedas.", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Ingresa el origen a partir del cual se har\u00e1 la b\u00fasqueda: ", None))
+        self.label_12.setText(QCoreApplication.translate("MainWindow", u"Origen en X: ", None))
+        self.pushButton_Mostrar_Busqueda_Profundidad.setText(QCoreApplication.translate("MainWindow", u"Mostrar b\u00fasqueda en profundidad.", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"Origen en Y:", None))
+        self.pushButton_Mostrar_Busqueda_Amplitud.setText(QCoreApplication.translate("MainWindow", u"Mostrar b\u00fasqueda en amplitud.", None))
+        self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"Impresi\u00f3n de la b\u00fasqueda en amplitud.", None))
+        self.groupBox_4.setTitle(QCoreApplication.translate("MainWindow", u"Impresi\u00f3n de la b\u00fasqueda en profundidad.", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), QCoreApplication.translate("MainWindow", u"B\u00fasqueda", None))
         self.menuArchivo.setTitle(QCoreApplication.translate("MainWindow", u"Archivo", None))
     # retranslateUi
 

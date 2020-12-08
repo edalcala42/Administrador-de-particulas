@@ -5,6 +5,7 @@ from ui_mainwindow import Ui_MainWindow
 from almacen_particulas import Almacen_Particulas
 from particula import Particula
 from random import randint
+from collections import deque
 from pprint import pformat
 import json
 
@@ -25,11 +26,168 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_Dibujar.clicked.connect(self.dibujar)
         self.ui.pushButton_Limpiar.clicked.connect(self.limpiar)
         self.ui.Orden_ID_pushButton.clicked.connect(self.ordenId)
+        self.ui.pushButton_Mostrar_Busqueda_Profundidad.clicked.connect(self.RealizarBusquedaProfundidad)
+        self.ui.pushButton_Mostrar_Busqueda_Amplitud.clicked.connect(self.RealizarBusquedaAmplitud)
         self.ui.Orden_Distancia_pushButton.clicked.connect(self.ordenDistancia)
         self.ui.Orden_Velocidad_pushButton.clicked.connect(self.ordenVelocidad)
         self.scene = QGraphicsScene()
         self.ui.graphicsView.setScene(self.scene)
     
+    @Slot()
+    def RealizarBusquedaProfundidad(self):
+        origenX = self.ui.spinBox_B_OrigenX.value()
+        origenY = self.ui.spinBox_2_B_OrigenY.value()
+        key = (origenX, origenY)
+        print(key)
+        #value = (destinoX, destinoY, particula.distancia)
+        if key in self.grafos:
+            Grafo = dict()
+            Grafo = self.grafos
+            visitados = []
+            pila = []
+            recorrido = []
+            visitados.append(key)
+            pila.append(key)
+            #print("Apilé el valor de origen: ", key)
+            #self.grafos[key].append(value)
+            current_number = -1
+            while len(pila) > 0:
+                print("Currently visited: ", visitados)
+                vertice = pila[current_number]
+                print("Obtuve el valor de vertice: ", vertice)
+                reverse_vertice = (vertice[1], vertice[0])
+                print("Reverse vertice = ", reverse_vertice)
+                if(vertice in self.grafos):
+                    print("Existe vertice.")
+                    adyacentes = Grafo[vertice]
+                    recorrido.append(vertice)
+                    pila.pop()
+                elif(reverse_vertice in self.grafos):
+                    print("Existe vertice reverso.") 
+                    adyacentes = Grafo[reverse_vertice]
+                    recorrido.append(reverse_vertice) 
+                    pila.pop()      
+                else:
+                    id = vertice[0] * 5
+                    particula = Particula(id, vertice[0], vertice[1], vertice[0], vertice[1], 50, 150, 50, 250)
+                    self.almacen_de_particulas.agregar_final(particula)
+                    value = (vertice[0], vertice[1], particula.distancia)
+                    print("Grafos antes de la comparación: ")
+                    print(Grafo)
+                    if vertice in Grafo:
+                        print("Entré aquí 1.")
+                        self.grafos[vertice].append(value)
+                        Grafo[vertice].append(vertice)
+                        adyacentes = Grafo[vertice]
+                        recorrido.append(vertice)
+                        pila.pop() 
+                    else:
+                        print("Entré aquí 2.")
+                        self.grafos[vertice] = [value]
+                        Grafo[vertice] = [value]
+                        adyacentes = Grafo[vertice]
+                        recorrido.append(vertice)
+                        pila.pop() 
+                
+                print("La lista actualizada de grafos es: ")
+                print(Grafo)
+                #adyacentes = Grafo[vertice]
+                tuplaCompleta = tuple()
+                for ady in adyacentes:
+                    print("Lista de adyacentes: ")
+                    print(adyacentes)
+                    print("Entré al ciclo for de ady in adyacentes.")
+                    tuplaCompleta = (ady[0], ady[1])
+                    print("Recuperé la tupla de: ", tuplaCompleta)
+                    if(tuplaCompleta not in visitados):
+                        visitados.append(tuplaCompleta)
+                        pila.append(tuplaCompleta) 
+            print("Recorrido de profundidad: ")
+            print (recorrido)
+            self.ui.salida_B_Profundidad.clear()
+            self.ui.salida_B_Profundidad.insertPlainText("Recorrido de profundidad: ")
+            self.ui.salida_B_Profundidad.insertPlainText(str(recorrido))
+        else:
+            print("No existe el vértice de origen.")
+            #self.grafos[key] = [value]
+
+    @Slot()
+    def RealizarBusquedaAmplitud(self):
+        origenX = self.ui.spinBox_B_OrigenX.value()
+        origenY = self.ui.spinBox_2_B_OrigenY.value()
+        key = (origenX, origenY)
+        print(key)
+        
+        if key in self.grafos:
+            Grafo2 = dict()
+            Grafo2 = self.grafos
+            visitados2 = []
+            cola = deque()
+            recorrido2 = []
+            print("Grafo 2: ")
+            print(Grafo2)
+
+            visitados2.append(key)
+            cola.append(key)
+            print("Apilé el valor de origen en cola: ", key)
+
+            while len(cola) > 0:
+                print("Visitados: ", visitados2)
+                vertice2 = cola[0]
+                reverse_vertice = (vertice2[1], vertice2[0])
+                print("Reverse vertice = ", reverse_vertice)
+                if(vertice2 in self.grafos):
+                    print("Existe vertice.")
+                    adyacentes2 = Grafo2[vertice2]
+                    cola.popleft()
+                    recorrido2.append(vertice2)
+                elif(reverse_vertice in self.grafos):
+                    print("Existe vertice reverso.") 
+                    adyacentes2 = Grafo2[reverse_vertice]
+                    cola.popleft()        
+                    recorrido2.append(vertice2)
+                else:
+                    id = vertice2[0] * 5
+                    particula = Particula(id, vertice2[0], vertice2[1], vertice2[0], vertice2[1], 50, 150, 50, 250)
+                    self.almacen_de_particulas.agregar_final(particula)
+                    value = (vertice2[0], vertice2[1], particula.distancia)
+                    print("Grafos antes de la comparación: ")
+                    print(Grafo2)
+                    if vertice2 in Grafo2:
+                        print("Entré aquí 11.")
+                        self.grafos[vertice2].append(value)
+                        Grafo2[vertice2].append(vertice2)
+                        adyacentes2 = Grafo2[vertice2]
+                        recorrido2.append(vertice2)
+                        cola.popleft() 
+                    else:
+                        print("Entré aquí 22.")
+                        self.grafos[vertice2] = [value]
+                        Grafo2[vertice2] = [value]
+                        adyacentes2 = Grafo2[vertice2]
+                        recorrido2.append(vertice2)
+                        cola.popleft() 
+                
+                print("La lista actualizada de grafos es: ")
+                print(Grafo2)
+                
+                for ady2 in adyacentes2:
+                    print("Lista de adyacentes: ")
+                    print(adyacentes2)
+                    print("Entré al ciclo for de ady in adyacentes.")
+                    tuplaCompleta = (ady2[0], ady2[1])
+                    print("Recuperé la tupla de: ", tuplaCompleta)
+                    if(tuplaCompleta not in visitados2):
+                        visitados2.append(tuplaCompleta)
+                        cola.append(tuplaCompleta) 
+            print("Recorrido de amplitud: ")
+            print(recorrido2)
+            self.ui.salida_B_Amplitud.clear()
+            self.ui.salida_B_Amplitud.insertPlainText("Recorrido de amplitud: ")
+            self.ui.salida_B_Amplitud.insertPlainText(str(recorrido2))
+        else:
+            print("No existe el vértice de origen.")
+
     @Slot()
     def ordenId(self):
         self.almacen_de_particulas.ordenarId()
@@ -213,12 +371,19 @@ class MainWindow(QMainWindow):
         self.almacen_de_particulas.agregar_final(particula)
 
         key = (origenX, origenY)
-        print(key)
+        key2 = (destinoX, destinoY)
+        print("Key 1: ", key)
+        print("Key 2: ", key2)
         value = (destinoX, destinoY, particula.distancia)
+        value2 = (origenX, origenY, particula.distancia)
         if key in self.grafos:
             self.grafos[key].append(value)
         else:
             self.grafos[key] = [value]
+        if key2 in self.grafos:
+            self.grafos[key2].append(value2)
+        else:
+            self.grafos[key2] = [value2]
 
 
 
