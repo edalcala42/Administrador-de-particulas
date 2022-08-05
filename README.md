@@ -1,4 +1,4 @@
-# Administrador-de-particulas
+# Administrador de partículas
 Se implementó una interfaz gráfica (con PySide2) para la captura de partículas, las cuales tienen los siguientes atributos:
 * Id
 * Origen en X
